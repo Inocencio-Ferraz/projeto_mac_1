@@ -60,5 +60,25 @@ def div(m1, m2): #Divisão de matrizes
             print(f'[{resultado[l][c]:^5}]', end='')
         print()
 
-def cls():
+
+def determinante(m1, m2): #Determinante
+    opcao = int(input("Você deseja realizar o determinante de qual matriz [1] ou [2]: "))
+    running = True
+    while running:
+        if opcao == 1:
+            m01 = m1[0][0] * (m1[1][1] * m1[2][2] - m1[1][2] * m1[2][1])
+            m02 = m1[0][1] * (m1[1][0] * m1[2][2] - m1[1][2] * m1[2][0])
+            m03 = m1[0][2] * (m1[1][0] * m1[2][1] - m1[1][1] * m1[2][0])
+            print(f'--- O DETERMINANTE DA MATRIZ é: ', m01 - m02 + m03)
+            break
+        
+        elif opcao == 2:
+            m11 = m2[0][0] * (m2[1][1] * m2[2][2] - m2[1][2] * m2[2][1])
+            m22 = m2[0][1] * (m2[1][0] * m2[2][2] - m2[1][2] * m2[2][0])
+            m33 = m2[0][2] * (m2[1][0] * m2[2][1] - m2[1][1] * m2[2][0])
+            print(f'--- O DETERMINANTE DA MATRIZ é: ', m11 - m22 + m33)
+            break
+        
+
+def cls(): #Limpar o código
     os.system('cls')
