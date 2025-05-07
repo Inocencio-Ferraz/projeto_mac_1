@@ -23,35 +23,40 @@ while run:
     print("[3] Multiplicação")
     print("[4] Multiplicação por escalar") 
     print("[5] Determinante")
+    print("[6] Limpar terminal")
     print("[0] Sair")
     op = int(input("\nO que o usuário deseja fazer: "))
 
     if op == 0:
-        #funcoes.cls()
         print("Você escolheu sair do programa. Volte sempre!")
         run = False
 
     elif op == 1:
-        #funcoes.cls()
         funcoes.soma(funcoes.matrizes[0], funcoes.matrizes[1])
     
     elif op == 2:
-        #funcoes.cls()
         funcoes.sub(funcoes.matrizes[0], funcoes.matrizes[1])
         
     elif op == 3:
-        #funcoes.cls()
         funcoes.mult(funcoes.matrizes[0], funcoes.matrizes[1])
 
     elif op == 4:
-        #funcoes.cls()
         funcoes.multEsc(funcoes.matrizes[0], funcoes.matrizes[1])
 
     elif op == 5:
-        #funcoes.cls()
         funcoes.determinante(funcoes.matrizes[0], funcoes.matrizes[1])
     
     
     elif op == 6:
-        #funcoes.cls()
-        funcoes.gerar_matriz()
+        funcoes.cls()
+        print("--- MATRIZ 1 ---")
+        for l in range(3):
+            for c in range(3):
+                print(f'[{funcoes.matrizes[0][l][c]:^5}]', end=' ')
+            print()
+
+        print("\n--- MATRIZ 2 ---")
+        for l in range(3):
+            for c in range(3):
+                print(f'[{funcoes.matrizes[1][l][c]:^5}]', end=' ')
+            print()
