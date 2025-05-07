@@ -3,7 +3,7 @@ from random import randint
 matrizes = []
 
 
-def gerar_matriz():  
+def gerar_matriz():  #Crianção de matriz com números randons
     for z in range(2):
         matriz = [[0,0,0],[0,0,0],[0,0,0]]
 
@@ -57,10 +57,13 @@ def sub(m1, m2): #Subtração de matrizes
         for c in range(3):
             linha.append(m1[l][c] - m2[l][c])
         resultado.append(linha)
+
     for l in range(3):
         for c in range(3):
             print(f'[{resultado[l][c]:^5}]', end=' ')
         print()
+
+
 
 def mult(m1, m2): #Multiplicação de matrizes
     print("--- A MULTIPLICAÇÃO DAS MATRIZ 1 E A MATRIZ 2 É ---")
@@ -77,33 +80,64 @@ def mult(m1, m2): #Multiplicação de matrizes
 
 def multEsc(m1, m2): #Multiplicação por escalar
     matriz1 = int(input('Qual matriz você deseja [1] ou [2]: '))
-    if matriz1 == 1: 
-        escalar = int(input('Número escalar: '))
-        print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
-        resultado = []
-        for l in range(3):
-            linha = []
-            for c in range(3):
-                linha.append(m1[l][c] * escalar)
-            resultado.append(linha)
-        for l in range(3):
-            for c in range(3):
-                print(f'[{resultado[l][c]:^5}]', end=' ')
-            print()
-    
-    elif matriz1 == 2: 
-        escalar = int(input('Número escalar: '))
-        print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
-        resultado = []
-        for l in range(3):
-            linha = []
-            for c in range(3):
-                linha.append(m2[l][c] * escalar)
-            resultado.append(linha)
-        for l in range(3):
-            for c in range(3):
-                print(f'[{resultado[l][c]:^5}]', end=' ')
-            print()
+    matriz2 = int(input('Deseja que [1] escalar aleatório [2] escolher o número escalar: '))
+
+    if matriz2 == 1:
+        _escalar = randint(0,10)
+        if matriz1 == 1: 
+            print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+            resultado = []
+            for l in range(3):
+                linha = []
+                for c in range(3):
+                    linha.append(m1[l][c] * _escalar)
+                resultado.append(linha)
+            for l in range(3):
+                for c in range(3):
+                    print(f'[{resultado[l][c]:^5}]', end=' ')
+                print()
+            print(_escalar)
+        elif matriz1 == 2: 
+            print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+            resultado = []
+            for l in range(3):
+                linha = []
+                for c in range(3):
+                    linha.append(m2[l][c] * randint(0, 10))
+                resultado.append(linha)
+            for l in range(3):
+                for c in range(3):
+                    print(f'[{resultado[l][c]:^5}]', end=' ')
+                print()
+
+    elif matriz2 == 2:
+        if matriz1 == 1: 
+            escalar = int(input('Número escalar: '))
+            print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+            resultado = []
+            for l in range(3):
+                linha = []
+                for c in range(3):
+                    linha.append(m1[l][c] * escalar)
+                resultado.append(linha)
+            for l in range(3):
+                for c in range(3):
+                    print(f'[{resultado[l][c]:^5}]', end=' ')
+                print()
+        
+        elif matriz1 == 2: 
+            escalar = int(input('Número escalar: '))
+            print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+            resultado = []
+            for l in range(3):
+                linha = []
+                for c in range(3):
+                    linha.append(m2[l][c] * escalar)
+                resultado.append(linha)
+            for l in range(3):
+                for c in range(3):
+                    print(f'[{resultado[l][c]:^5}]', end=' ')
+                print()
 
 
 def determinante(m1, m2): #Determinante
