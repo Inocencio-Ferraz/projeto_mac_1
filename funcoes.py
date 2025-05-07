@@ -1,6 +1,24 @@
 import os
+from random import randint
 matrizes = []
 
+
+def gerar_matriz():  
+    for z in range(2):
+        matriz = [[0,0,0],[0,0,0],[0,0,0]]
+
+        for l in range(3):
+            for c in range(3):
+                matriz[l][c] = randint(0, 101)
+        for l in range(3):
+            for c in range(3):
+                print(f'[{matriz[l][c]:^5}]', end='')
+            print()
+        print('-' * 30)
+
+        matrizes.append(matriz)
+    
+        
 def matriz(): #Criação das matrizes
     matriz = [[0,0,0],[0,0,0],[0,0,0]]
 
@@ -19,13 +37,17 @@ def matriz(): #Criação das matrizes
 def soma(m1, m2): #soma de matrizes
     print("--- A SOMA DAS MATRIZ 1 E A MATRIZ 2 É ---")
     resultado = []
-    for l in range(3):
+    for l in range(0, 3):
         linha = []
-        for c in range(3):
+        for c in range(0, 3):
             linha.append(m1[l][c] + m2[l][c])
-            resultado.append(linha)
-            print(f'[{resultado[l][c]:^5}]', end='')
+        resultado.append(linha)
+    
+    for l in range(3):
+        for c in range(3):
+            print(f'[{resultado[l][c]:^5}]', end=' ')
         print()
+
 
 def sub(m1, m2): #Subtração de matrizes
     print("--- A SUBTRAÇÃO DAS MATRIZ 1 E A MATRIZ 2 É ---")
@@ -34,8 +56,10 @@ def sub(m1, m2): #Subtração de matrizes
         linha = []
         for c in range(3):
             linha.append(m1[l][c] - m2[l][c])
-            resultado.append(linha)
-            print(f'[{resultado[l][c]:^5}]', end='')
+        resultado.append(linha)
+    for l in range(3):
+        for c in range(3):
+            print(f'[{resultado[l][c]:^5}]', end=' ')
         print()
 
 def mult(m1, m2): #Multiplicação de matrizes
@@ -45,20 +69,41 @@ def mult(m1, m2): #Multiplicação de matrizes
         linha = []
         for c in range(3):
             linha.append(m1[l][c] * m2[l][c])
-            resultado.append(linha)
-            print(f'[{resultado[l][c]:^5}]', end='')
+        resultado.append(linha)
+    for l in range(3):
+        for c in range(3):
+            print(f'[{resultado[l][c]:^5}]', end=' ')
         print()
 
-def div(m1, m2): #Divisão de matrizes
-    print("--- A DIVISÃO DAS MATRIZ 1 E A MATRIZ 2 É ---")
-    resultado = []
-    for l in range(3):
-        linha = []
-        for c in range(3):
-            linha.append(m1[l][c] / m2[l][c])
+def multEsc(m1, m2): #Multiplicação por escalar
+    matriz1 = int(input('Qual matriz você deseja [1] ou [2]: '))
+    if matriz1 == 1: 
+        escalar = int(input('Número escalar: '))
+        print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+        resultado = []
+        for l in range(3):
+            linha = []
+            for c in range(3):
+                linha.append(m1[l][c] * escalar)
             resultado.append(linha)
-            print(f'[{resultado[l][c]:^5}]', end='')
-        print()
+        for l in range(3):
+            for c in range(3):
+                print(f'[{resultado[l][c]:^5}]', end=' ')
+            print()
+    
+    elif matriz1 == 2: 
+        escalar = int(input('Número escalar: '))
+        print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
+        resultado = []
+        for l in range(3):
+            linha = []
+            for c in range(3):
+                linha.append(m2[l][c] * escalar)
+            resultado.append(linha)
+        for l in range(3):
+            for c in range(3):
+                print(f'[{resultado[l][c]:^5}]', end=' ')
+            print()
 
 
 def determinante(m1, m2): #Determinante
