@@ -1,11 +1,14 @@
 import os
 from random import randint
+
 matrizes = []
 
 
-def gerar_matriz():  #Crianção de matriz com números randons
+def gerar_matriz():  #Crianção de matriz com números aleatórios
     for z in range(2):
-        matriz = [[0,0,0],[0,0,0],[0,0,0]]
+        matriz = [[0,0,0],
+                  [0,0,0],
+                  [0,0,0]]
 
         for l in range(3):
             for c in range(3):
@@ -73,17 +76,19 @@ def mult(m1, m2): #Multiplicação de matrizes
         for c in range(3):
             linha.append(m1[l][c] * m2[l][c])
         resultado.append(linha)
+
     for l in range(3):
         for c in range(3):
             print(f'[{resultado[l][c]:^5}]', end=' ')
         print()
+
 
 def multEsc(m1, m2): #Multiplicação por escalar
     matriz1 = int(input('Qual matriz você deseja [1] ou [2]: '))
     matriz2 = int(input('Deseja que [1] escalar aleatório [2] escolher o número escalar: '))
 
     if matriz2 == 1:
-        _escalar = randint(0,10)
+        _escalar = randint(0,11)
         if matriz1 == 1: 
             print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
             resultado = []
@@ -96,7 +101,7 @@ def multEsc(m1, m2): #Multiplicação por escalar
                 for c in range(3):
                     print(f'[{resultado[l][c]:^5}]', end=' ')
                 print()
-            print(_escalar)
+            print(f'Produto escalar: {_escalar}')
         elif matriz1 == 2: 
             print("--- MULTIPLICAÇÃO POR ESCALAR É ---")
             resultado = []
@@ -109,6 +114,7 @@ def multEsc(m1, m2): #Multiplicação por escalar
                 for c in range(3):
                     print(f'[{resultado[l][c]:^5}]', end=' ')
                 print()
+            print(f'Produto escalar: {_escalar}')
 
     elif matriz2 == 2:
         if matriz1 == 1: 
@@ -157,7 +163,22 @@ def determinante(m1, m2): #Determinante
             m33 = m2[0][2] * (m2[1][0] * m2[2][1] - m2[1][1] * m2[2][0])
             print(f'--- O DETERMINANTE DA MATRIZ é: ', m11 - m22 + m33)
             break
-        
+
+def transposta(m1,m2): #Transposta
+    opcao = int(input("Qual Matriz [1] ou Matriz [2] voce deseja saber a transposta: "))
+    if opcao == 1:
+        transposta = list(zip(*m1))
+        for l in range(3):
+                for c in range(3):
+                    print(f'[{transposta[l][c]:^5}]', end=' ')
+                print()
+
+    elif opcao == 2:
+        transposta = list(zip(*m2))
+        for l in range(3):
+                for c in range(3):
+                    print(f'[{transposta[l][c]:^5}]', end=' ')
+                print()
 
 def cls(): #Limpar o código
     os.system('cls')
