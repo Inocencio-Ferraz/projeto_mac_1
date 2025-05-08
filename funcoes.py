@@ -164,7 +164,7 @@ def determinante(m1, m2): #Determinante
             print(f'--- O DETERMINANTE DA MATRIZ é: ', m11 - m22 + m33)
             break
 
-def transposta(m1,m2): #Transposta
+def transposta(m1,m2): #Matriz transposta
     opcao = int(input("Qual Matriz [1] ou Matriz [2] voce deseja saber a transposta: "))
     if opcao == 1:
         transposta = list(zip(*m1))

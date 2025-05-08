@@ -1,4 +1,4 @@
-import funcoes
+import funcoes #import funções 
 _oop = True
 while _oop:
     try:
