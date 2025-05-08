@@ -27,6 +27,7 @@ while _oop:
             print("[5] Determinante")
             print("[6] Matriz Transposta")
             print("[7] Limpar terminal")
+            print("[6] Limpar terminal")
             print("[0] Sair")
             op = int(input("\nO que o usuário deseja fazer: "))
 
